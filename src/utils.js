@@ -9,8 +9,8 @@ function setReturnUrl() {
 }
 
 const paymentMethodsConfig = {
-    shopperReference: 'Checkout Components sample code test',
-    reference: 'Checkout Components sample code test',
+    shopperReference: 'weizhang_adyenrecruitment',
+    reference: 'weizhang_adyenrecruitment',
     countryCode: 'NL',
     amount: {
         value: 1000,
@@ -19,11 +19,11 @@ const paymentMethodsConfig = {
 };
 
 const paymentsDefaultConfig = {
-    shopperReference: 'Checkout Components sample code test',
-    reference: 'Checkout Components sample code test',
+    shopperReference: 'weizhang_adyenrecruitment',
+    reference: 'weizhang_adyenrecruitment',
+    returnUrl: 'https://docs.adyen.com',
     countryCode: 'NL',
     channel: 'Web',
-    returnUrl: setReturnUrl(),
     amount: {
         value: 1000,
         currency: 'EUR'

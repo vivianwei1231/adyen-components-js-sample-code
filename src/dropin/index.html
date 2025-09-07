@@ -8,6 +8,35 @@
     <title>Adyen Checkout Components sample code</title>
     <link rel="stylesheet" href="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/5.40.0/adyen.css">
     <link rel="stylesheet" href="../demo.css">
+    <style>
+        /* Add Custom CSS overrides to the dropin section*/
+
+        /* Drop-in container with solid Adyen green */
+        #dropin-container {
+            background-color: #0abf53; /* Solid Adyen green */
+            border-radius: 20px;       /* Rounded corners */
+            padding: 30px;             /* Inner spacing */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); /* Depth shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;          /* Clip children overflow */
+        }
+
+        /* Hover effect */
+        #dropin-container:hover {
+            transform: translateY(-5px) scale(1.02); /* Slight lift and scale */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+        }
+
+        /* Optional subtle inner glow */
+        #dropin-container::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.05) inset;
+            pointer-events: none;
+        }
+    </style>
 </head>
 
 <body>

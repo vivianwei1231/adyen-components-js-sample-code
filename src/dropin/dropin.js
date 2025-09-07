@@ -13,11 +13,14 @@ getClientKey().then(clientKey => {
     const urlParams = getSearchParameters(window.location.search);
 
     // Can add request params to this object
-    const pmReqConfig = {countryCode: urlParams.countryCode || DEFAULT_COUNTRY};
+    const pmReqConfig = {
+        countryCode: urlParams.countryCode || DEFAULT_COUNTRY
+    };
+
     getPaymentMethods(pmReqConfig).then(async paymentMethodsResponse => {
 
         paymentMethodsResponse.paymentMethods.reverse();
-
+        
         let allowedPMS = urlParams.allowedpms;// e.g. &allowedpms=[scheme,ideal]
         if(allowedPMS === '[]' || typeof allowedPMS === 'undefined') allowedPMS = [];// if empty, all PMs will show
 
@@ -27,6 +30,13 @@ getClientKey().then(clientKey => {
             paymentMethodsResponse,
             // removePaymentMethods: ['paysafecard', 'c_cash'],
             allowPaymentMethods: allowedPMS,
+            paymentMethodsConfiguration: {
+                card: {
+                    hasHolderName: true,
+                    holderNameRequired: true,
+                    billingAddressRequired: true
+                }
+            },
             onChange: state => {
                 updateStateContainer(state); // Demo purposes only
             },
@@ -49,11 +59,16 @@ getClientKey().then(clientKey => {
             .create('dropin', {
                 // Events
                 onSelect: activeComponent => {
-                    if (activeComponent.state && activeComponent.state.data) updateStateContainer(activeComponent.data); // Demo purposes only
+                    if (activeComponent.state && activeComponent.state.data) {
+                        updateStateContainer(activeComponent.data);
+                    }
                 },
                 showStoredPaymentMethods: false
             })
             .mount('#dropin-container');
+        console.log("Checkout config object:", configObj);
+        console.log("Payment methods from Adyen:", paymentMethodsResponse.paymentMethods);
+        console.log("end:");
 
     });
 });
