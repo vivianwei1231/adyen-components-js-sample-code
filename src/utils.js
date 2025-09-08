@@ -9,8 +9,8 @@ function setReturnUrl() {
 }
 
 const paymentMethodsConfig = {
-    shopperReference: 'weizhang_adyenrecruitment',
-    reference: 'weizhang_adyenrecruitment',
+    shopperReference: 'Checkout Components sample code test',
+    reference: 'Checkout Components sample code test',
     countryCode: 'NL',
     amount: {
         value: 1000,

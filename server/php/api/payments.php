@@ -24,8 +24,6 @@ function initiatePayment() {
             'currency' => 'EUR',
             'value' => 1000
         ],
-        'reference' => 'weizhang_adyenrecruitment',
-        'returnUrl' => 'https://docs.adyen.com/',
         'merchantAccount' => $merchantAccount
     ];
 
