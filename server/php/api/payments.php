@@ -24,6 +24,8 @@ function initiatePayment() {
             'currency' => 'EUR',
             'value' => 1000
         ],
+        'reference' => 'Order Reference',
+        'returnUrl' => 'https://your-company.com/...',
         'merchantAccount' => $merchantAccount
     ];
 

@@ -13,9 +13,7 @@ getClientKey().then(clientKey => {
     const urlParams = getSearchParameters(window.location.search);
 
     // Can add request params to this object
-    const pmReqConfig = {
-        countryCode: urlParams.countryCode || DEFAULT_COUNTRY
-    };
+    const pmReqConfig = {countryCode: urlParams.countryCode || DEFAULT_COUNTRY};
 
     getPaymentMethods(pmReqConfig).then(async paymentMethodsResponse => {
 
@@ -59,16 +57,11 @@ getClientKey().then(clientKey => {
             .create('dropin', {
                 // Events
                 onSelect: activeComponent => {
-                    if (activeComponent.state && activeComponent.state.data) {
-                        updateStateContainer(activeComponent.data);
-                    }
+                    if (activeComponent.state && activeComponent.state.data) updateStateContainer(activeComponent.data); // Demo purposes only
                 },
                 showStoredPaymentMethods: false
             })
             .mount('#dropin-container');
-        console.log("Checkout config object:", configObj);
-        console.log("Payment methods from Adyen:", paymentMethodsResponse.paymentMethods);
-        console.log("end:");
 
     });
 });
